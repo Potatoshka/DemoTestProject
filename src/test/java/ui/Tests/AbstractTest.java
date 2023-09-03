@@ -1,3 +1,5 @@
+package ui.Tests;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 
@@ -9,5 +11,7 @@ public class AbstractTest {
     void beforeEach(){
         open("https://demoqa.com");
     }
+
+
 
 }

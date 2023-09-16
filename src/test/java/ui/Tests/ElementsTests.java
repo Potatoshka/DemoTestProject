@@ -1,6 +1,7 @@
 package ui.Tests;
 
 import helper.Faker;
+import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Test;
 import ui.Pages.ElementsPage;
 
@@ -18,7 +19,7 @@ public class ElementsTests extends AbstractTest {
                 .clickMenuValue(textBox)
                 .fillInputField("Full Name", name)
                 .fillInputField("Email", email)
-                .fillInputField("Current Address", address)
+                .fillTextArea("Current Address", address)
                 .clickSubmit()
                 .checkOutput(name, email, address);
     }

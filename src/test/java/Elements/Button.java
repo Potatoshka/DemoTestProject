@@ -8,7 +8,7 @@ import static helper.StringUtils.$x;
 public class Button {
     SelenideElement element;
 
-    public Button(SelenideElement element){this.element = element.shouldBe(Condition.visible);}
+    public Button(SelenideElement element){this.element = element.scrollIntoView(true).shouldBe(Condition.visible);}
 
     public static Button byId(String id){return new Button($x("//button[@id='{}']", id));}
 

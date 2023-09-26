@@ -1,16 +1,17 @@
 package ui.Tests;
 
 import helper.Faker;
-import lombok.extern.log4j.Log4j2;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ui.Pages.ElementsPage;
 
-import static ui.Pages.ElementsPage.textBox;
+import static ui.Pages.ElementsPage.*;
 
 public class ElementsTests extends AbstractTest {
 
     @Test
-    void InputFieldsTest(){
+    @DisplayName("TextBox tests")
+    void inputFieldsTest(){
         String name = Faker.fullName;
         String email = Faker.email;
         String address = Faker.address;
@@ -23,4 +24,29 @@ public class ElementsTests extends AbstractTest {
                 .clickSubmit()
                 .checkOutput(name, email, address);
     }
+
+    @Test
+    @DisplayName("CheckBox test")
+    void checkBoxTest(){
+        ElementsPage elementsPage = IndexPage.goToElements();
+        elementsPage
+                .clickMenuValue(checkBox)
+                .clickExpand()
+                .checkTreeExpanded()
+                .setCheckBoxes()
+                .clickCollapse()
+                .checkTreeCollapsed();
+    }
+
+    @Test
+    @DisplayName("Radio button test")
+    void radioButtonTest(){
+        ElementsPage elementsPage = IndexPage.goToElements();
+        elementsPage
+                .clickMenuValue(radioButton)
+                .setRadioButtons()
+                .radioBtnIsDisabled();
+    }
+
+
 }

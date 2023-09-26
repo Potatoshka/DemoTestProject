@@ -11,6 +11,7 @@ public class Button {
     public Button(SelenideElement element){this.element = element.scrollIntoView(true).shouldBe(Condition.visible);}
 
     public static Button byId(String id){return new Button($x("//button[@id='{}']", id));}
+    public static Button byAriaLabel(String label){return new Button($x("//button[@aria-label='{}']", label));}
 
     public void clickButton(){element.click();}
 

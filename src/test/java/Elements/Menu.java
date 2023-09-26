@@ -14,4 +14,6 @@ public class Menu {
     public void clickMenu(){
         element.click();
     }
+
+    public String getText(){return element.text();}
 }

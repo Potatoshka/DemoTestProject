@@ -1,6 +1,7 @@
 package ui.Tests;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import lombok.Getter;
 import ui.Pages.ElementsPage;
 
@@ -17,7 +18,7 @@ public class IndexPage {
     SelenideElement widgets = $x("//div[.='Widgets']");
     SelenideElement interactions = $x("//div[.='Interactions']");
     SelenideElement store = $x("//div[.='Book Store Application']");
-
+    @Step("Go to Elements page")
     public static ElementsPage goToElements(){
         elements.click();
         return new ElementsPage();

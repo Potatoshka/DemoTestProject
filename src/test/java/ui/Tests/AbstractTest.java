@@ -6,12 +6,17 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import ui.Pages.ElementsDirectory.CheckBoxPage;
+import ui.Pages.ElementsDirectory.RadioButtonPage;
+import ui.Pages.ElementsDirectory.TextBoxPage;
+import ui.Pages.ElementsDirectory.WebTablesPage;
 
 import static com.codeborne.selenide.Selenide.open;
 
 public class AbstractTest {
+
     @BeforeEach
-    @DisplayName("Открываем главную страницу")
+    @DisplayName("Open main page")
     void beforeEach(){
         open("https://demoqa.com");
     }

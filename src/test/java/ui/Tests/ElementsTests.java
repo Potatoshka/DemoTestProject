@@ -3,49 +3,61 @@ package ui.Tests;
 import helper.Faker;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import ui.Pages.ElementsPage;
+import ui.Pages.BasePage;
+import ui.Pages.ElementsDirectory.CheckBoxPage;
+import ui.Pages.ElementsDirectory.RadioButtonPage;
+import ui.Pages.ElementsDirectory.TextBoxPage;
+import ui.Pages.ElementsDirectory.WebTablesPage;
 
-import static ui.Pages.ElementsPage.*;
+import static ui.Pages.BasePage.*;
 
 public class ElementsTests extends AbstractTest {
+
+
+
+
 
     @Test
     @DisplayName("TextBox tests")
     void inputFieldsTest(){
-        String name = Faker.fullName;
-        String email = Faker.email;
-        String address = Faker.address;
-        ElementsPage elementsPage = IndexPage.goToElements();
-        elementsPage
-                .clickMenuValue(textBox)
-                .fillInputField("Full Name", name)
-                .fillInputField("Email", email)
-                .fillTextArea("Current Address", address)
-                .clickSubmit()
-                .checkOutput(name, email, address);
+        IndexPage.goToElements().clickMenuValue(textBox);
+        TextBoxPage textBoxPage = new TextBoxPage();
+        textBoxPage
+                .fillData()
+                .checkOutput();
     }
 
     @Test
     @DisplayName("CheckBox test")
     void checkBoxTest(){
-        ElementsPage elementsPage = IndexPage.goToElements();
-        elementsPage
-                .clickMenuValue(checkBox)
-                .clickExpand()
-                .checkTreeExpanded()
+        IndexPage.goToElements().clickMenuValue(checkBox);
+        CheckBoxPage checkBoxPage = new CheckBoxPage();
+        checkBoxPage
+                .clickExpandTree()
                 .setCheckBoxes()
-                .clickCollapse()
                 .checkTreeCollapsed();
     }
 
     @Test
     @DisplayName("Radio button test")
     void radioButtonTest(){
-        ElementsPage elementsPage = IndexPage.goToElements();
-        elementsPage
-                .clickMenuValue(radioButton)
+        IndexPage.goToElements().clickMenuValue(radioButton);
+        RadioButtonPage radioButtonPage = new RadioButtonPage();
+        radioButtonPage
                 .setRadioButtons()
                 .radioBtnIsDisabled();
+    }
+
+    @Test
+    @DisplayName("Web Table add value test")
+    void addUserTableTest(){
+        IndexPage.goToElements().clickMenuValue(webTables);
+        WebTablesPage webTablesPage = new WebTablesPage();
+        webTablesPage
+                .clickAddButton()
+                .fillRegistrationForm()
+                .checkTable();
+
     }
 
 

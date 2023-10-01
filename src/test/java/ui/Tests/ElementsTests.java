@@ -1,9 +1,7 @@
 package ui.Tests;
 
-import helper.Faker;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import ui.Pages.BasePage;
 import ui.Pages.ElementsDirectory.CheckBoxPage;
 import ui.Pages.ElementsDirectory.RadioButtonPage;
 import ui.Pages.ElementsDirectory.TextBoxPage;

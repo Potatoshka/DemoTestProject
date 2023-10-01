@@ -2,9 +2,15 @@ package ui.Pages.ElementsDirectory;
 
 import Elements.Button;
 import Elements.Table;
+import com.codeborne.selenide.SelenideElement;
 import helper.Faker;
 import io.qameta.allure.Step;
+import org.junit.jupiter.api.Assertions;
 import ui.Pages.BasePage;
+
+import java.util.Map;
+
+import static com.codeborne.selenide.Selenide.$;
 
 public class WebTablesPage extends BasePage {
    final String name = Faker.name;
@@ -40,13 +46,39 @@ public class WebTablesPage extends BasePage {
     @Step("Check if new values appeared in the table")
     public WebTablesPage checkTable(){
         Table table = Table.byClass("rt-table");
-        table.isTextInColumn(firstNameColumn, name);
-        table.isTextInColumn(lastNameColumn, surname);
-        table.isTextInColumn(emailColumn, email);
-        table.isTextInColumn(salaryColumn, String.valueOf(salary));
-        table.isTextInColumn(ageColumn, String.valueOf(age));
-        table.isTextInColumn(departmentColumn, department);
+        Assertions.assertTrue(table.isTextInColumn(firstNameColumn, name));
+        Assertions.assertTrue(table.isTextInColumn(lastNameColumn, surname));
+        Assertions.assertTrue(table.isTextInColumn(emailColumn, email));
+        Assertions.assertTrue(table.isTextInColumn(salaryColumn, String.valueOf(salary)));
+        Assertions.assertTrue(table.isTextInColumn(ageColumn, String.valueOf(age)));
+        Assertions.assertTrue(table.isTextInColumn(departmentColumn, department));
         return this;
     }
 
+
+
+    @Step("Get First Name from first row")
+    public String getFirstNameFromFirstRow() {
+        Table table = Table.byClass("rt-table");
+        return table.getDataFromCellInFirstRow(firstNameColumn);
+    }
+
+    @Step("Click Edit in Table where the First row")
+    public WebTablesPage clickEdit(){
+        $("#edit-record-1").click();
+        return this;
+    }
+
+    @Step("Clear and fill in First Name input field")
+    public WebTablesPage fillFirstName(String value){
+        clearInputField(firstNameColumn);
+        fillInputField(firstNameColumn, value);
+        return this;
+    }
+
+    @Step("Check edited First Name")
+    public WebTablesPage checkFirstName(String originalName){
+        Assertions.assertNotEquals(originalName, getFirstNameFromFirstRow());
+        return this;
+    }
 }

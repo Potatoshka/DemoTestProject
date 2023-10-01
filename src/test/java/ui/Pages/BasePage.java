@@ -36,6 +36,11 @@ public class BasePage {
         return this;
     }
 
+    public BasePage clearInputField(String label){
+        Input.byLabel(label).clearValue();
+        return this;
+    }
+
     @Step("Fill textArea: {placeholder}")
     public BasePage fillTextArea(String placeholder, String text){
         TextArea.byPlaceHolder(placeholder).inputSetValue(text);

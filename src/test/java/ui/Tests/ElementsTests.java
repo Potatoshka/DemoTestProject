@@ -57,6 +57,19 @@ public class ElementsTests extends AbstractTest {
                 .clickAddButton()
                 .fillRegistrationForm()
                 .checkTable();
+    }
+
+    @Test
+    @DisplayName("Edit user WebTable test")
+    void editUserTableTest(){
+        IndexPage.goToElements().clickMenuValue(webTables);
+        WebTablesPage webTablesPage = new WebTablesPage();
+        String originalName = webTablesPage.getFirstNameFromFirstRow();
+            webTablesPage
+                    .clickEdit()
+                    .fillFirstName("EditedName")
+                    .clickSubmit();
+            webTablesPage.checkFirstName(originalName);
 
     }
 

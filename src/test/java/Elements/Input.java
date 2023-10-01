@@ -14,4 +14,5 @@ public class Input {
     public static Input byLabel(String label){return new Input($x("//label[.='{}']//..//..//input", label));}
     public static Input byPlaceHolder(String placeHolder){return new Input($x("//input[@placeholder='{}']", placeHolder));}
     public void inputSetValue(String value){element.setValue(value);}
+    public void clearValue(){element.clear();}
 }

@@ -3,7 +3,7 @@ package ui.Tests;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import lombok.Getter;
-import ui.Pages.ElementsPage;
+import ui.Pages.BasePage;
 
 import static helper.StringUtils.$x;
 
@@ -19,9 +19,9 @@ public class IndexPage {
     SelenideElement interactions = $x("//div[.='Interactions']");
     SelenideElement store = $x("//div[.='Book Store Application']");
     @Step("Go to Elements page")
-    public static ElementsPage goToElements(){
+    public static BasePage goToElements(){
         elements.click();
-        return new ElementsPage();
+        return new BasePage();
     }
 
     public void checkHeader(String value){

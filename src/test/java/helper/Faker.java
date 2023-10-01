@@ -21,6 +21,15 @@ public class Faker {
     public static String email = faker.internet().emailAddress();
     @Getter
     public static String address = faker.address().fullAddress();
+    @Getter
+    public static String name = faker.name().firstName();
+    @Getter
+    public static String lastName = faker.name().lastName();
+    @Getter
+    public static int age = faker.number().numberBetween(10,100);
+    @Getter
+    public static int salary = faker.number().numberBetween(1000, 10000);
+    public static String department = faker.company().profession();
 
 
 

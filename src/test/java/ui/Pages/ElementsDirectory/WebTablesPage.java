@@ -63,6 +63,12 @@ public class WebTablesPage extends BasePage {
         return table.getDataFromCellInFirstRow(firstNameColumn);
     }
 
+    @Step("Get Last Name from second row")
+    public String getLastNameFromSecondRow(){
+        Table table = Table.byClass("rt-table");
+        return table.getDataFromSecondCellInSecondRow(lastNameColumn);
+    }
+
     @Step("Click Edit in Table where the First row")
     public WebTablesPage clickEdit(){
         $("#edit-record-1").click();
@@ -79,6 +85,19 @@ public class WebTablesPage extends BasePage {
     @Step("Check edited First Name")
     public WebTablesPage checkFirstName(String originalName){
         Assertions.assertNotEquals(originalName, getFirstNameFromFirstRow());
+        return this;
+    }
+
+    @Step("Check that no LastName in the column")
+    public WebTablesPage checkNoLastName(String lastName){
+        Table table =  Table.byClass("rt-table");
+        Assertions.assertFalse(table.isTextInColumn(lastNameColumn, lastName));
+        return this;
+    }
+
+    @Step("Click Delete in the table")
+    public WebTablesPage clickDelete(){
+        $("#delete-record-2").click();
         return this;
     }
 }

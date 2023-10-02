@@ -8,7 +8,7 @@ import static helper.StringUtils.$x;
 public class Menu {
     SelenideElement element;
 
-    public Menu(SelenideElement element){this.element = element.shouldBe(Condition.visible);}
+    public Menu(SelenideElement element){this.element = element.shouldBe(Condition.visible).scrollIntoView(true);}
     public static Menu byText(String text){return new Menu($x("//li[.='{}']", text));}
 
     public void clickMenu(){

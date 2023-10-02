@@ -16,7 +16,7 @@ public class BasePage {
    public static Menu checkBox = Menu.byText("Check Box");
    public static Menu radioButton = Menu.byText("Radio Button");
    public static Menu webTables = Menu.byText("Web Tables");
-    Menu buttons = Menu.byText("Buttons");
+   public static Menu buttons = Menu.byText("Buttons");
     Menu links = Menu.byText("Links");
     Menu brokenLinks = Menu.byText("Broken Links - Images");
     Menu upload = Menu.byText("Upload and Download");

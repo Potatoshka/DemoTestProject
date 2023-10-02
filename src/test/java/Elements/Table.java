@@ -33,6 +33,7 @@ public class Table {
     public SelenideElement getFirstRow(){
         return getRowByNumber(1);
     }
+    public SelenideElement getSecondRow(){return getRowByNumber(2);}
 
     int getColumnIndex(String columnName){
         ElementsCollection headers = table.$$x(".//*[@role='columnheader']");
@@ -61,5 +62,8 @@ public class Table {
     }
   public String getDataFromCellInFirstRow(String columnName){
         return getFirstRow().$x(".//*[@role='gridcell'][" + getColumnIndex(columnName) + "]").getText();
+    }
+    public String getDataFromSecondCellInSecondRow(String columnName){
+        return getSecondRow().$x(".//*[@role='gridcell'][" + getColumnIndex(columnName) + "]").getText();
     }
 }

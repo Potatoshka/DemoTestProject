@@ -2,10 +2,7 @@ package ui.Tests;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import ui.Pages.ElementsDirectory.CheckBoxPage;
-import ui.Pages.ElementsDirectory.RadioButtonPage;
-import ui.Pages.ElementsDirectory.TextBoxPage;
-import ui.Pages.ElementsDirectory.WebTablesPage;
+import ui.Pages.ElementsDirectory.*;
 
 import static ui.Pages.BasePage.*;
 
@@ -69,6 +66,28 @@ public class ElementsTests extends AbstractTest {
                     .clickSubmit();
             webTablesPage.checkFirstName(originalName);
 
+    }
+
+    @Test
+    @DisplayName("Delete user from table")
+    void deleteUserFromTableTest(){
+        IndexPage.goToElements().clickMenuValue(webTables);
+        WebTablesPage webTablesPage = new WebTablesPage();
+        String toBeDeletedName = webTablesPage.getLastNameFromSecondRow();
+        webTablesPage
+                .clickDelete()
+                .checkNoLastName(toBeDeletedName);
+    }
+
+    @Test
+    @DisplayName("Buttons test")
+    void clickButtonsTest(){
+        IndexPage.goToElements().clickMenuValue(buttons);
+        ButtonsPage buttonsPage = new ButtonsPage();
+        buttonsPage
+                .doubleClick()
+                .rightClick()
+                .clickDynamicButton();
     }
 
 

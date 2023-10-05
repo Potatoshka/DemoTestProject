@@ -90,5 +90,27 @@ public class ElementsTests extends AbstractTest {
                 .clickDynamicButton();
     }
 
+    @Test
+    @DisplayName("Simple link test")
+    void linksTest(){
+        IndexPage.goToElements().clickMenuValue(links);
+        new LinksPage()
+                .clickSimpleLink();
+    }
+
+    @Test
+    @DisplayName("Dynamic link test")
+    void dynamicLinkTest(){
+        IndexPage.goToElements().clickMenuValue(links);
+        new LinksPage()
+                .clickDynamicLink();
+    }
+
+    @Test
+    @DisplayName("Links with API response test")
+    void apiLinksTest(){
+
+    }
+
 
 }

@@ -17,7 +17,7 @@ public class BasePage {
    public static Menu radioButton = Menu.byText("Radio Button");
    public static Menu webTables = Menu.byText("Web Tables");
    public static Menu buttons = Menu.byText("Buttons");
-    Menu links = Menu.byText("Links");
+   public static Menu links = Menu.byText("Links");
     Menu brokenLinks = Menu.byText("Broken Links - Images");
     Menu upload = Menu.byText("Upload and Download");
     Menu dynamicProperties = Menu.byText("Dynamic Properties");
@@ -65,11 +65,7 @@ public class BasePage {
         return this;
     }
 
-
-
-
-
-   public boolean listContainsValue(List<String> list, String value){
+    public boolean listContainsValue(List<String> list, String value){
         return list.stream().anyMatch(s -> s.equals(value));
     }
 

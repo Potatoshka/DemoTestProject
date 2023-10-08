@@ -11,6 +11,7 @@ import ui.Pages.ElementsDirectory.RadioButtonPage;
 import ui.Pages.ElementsDirectory.TextBoxPage;
 import ui.Pages.ElementsDirectory.WebTablesPage;
 
+import static com.codeborne.selenide.FileDownloadMode.PROXY;
 import static com.codeborne.selenide.Selenide.open;
 
 public class AbstractTest {
@@ -25,6 +26,8 @@ public class AbstractTest {
     static void beforeAll(){
         Configuration.pageLoadStrategy = "eager";
         Configuration.browserSize = "1366x768";
+        Configuration.proxyEnabled = true;
+        Configuration.fileDownload = PROXY;
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
     }
 

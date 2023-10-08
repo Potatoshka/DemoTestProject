@@ -3,6 +3,9 @@ package Elements;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 
+import javax.imageio.ImageIO;
+import java.io.File;
+
 import static com.codeborne.selenide.Selenide.$;
 import static helper.StringUtils.$x;
 
@@ -14,4 +17,6 @@ public class Link {
     public static Link byID(String id){return new Link($x("//*[@id='{}']", id));}
 
     public  void clickLink(){element.click();}
+
+
 }

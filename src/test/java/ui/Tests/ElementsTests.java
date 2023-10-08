@@ -4,6 +4,11 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ui.Pages.ElementsDirectory.*;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+
 import static ui.Pages.BasePage.*;
 
 public class ElementsTests extends AbstractTest {
@@ -107,10 +112,21 @@ public class ElementsTests extends AbstractTest {
     }
 
     @Test
-    @DisplayName("Links with API response test")
-    void apiLinksTest(){
-
+    @DisplayName("Broken Image test")
+    void brokenImageTest() throws IOException {
+        IndexPage.goToElements().clickMenuValue(brokenLinks);
+        URL url = new URL("https://demoqa.com/images/");
+        new LinksPage().checkImage(url);
     }
+
+    @Test
+    @DisplayName("Download test")
+    void downloadTest() throws FileNotFoundException {
+        IndexPage.goToElements().clickMenuValue(upload);
+        new UploadPage().downLoadFile();
+    }
+
+
 
 
 }

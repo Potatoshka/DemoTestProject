@@ -9,6 +9,12 @@
   <properties>
     <aspectj.version>1.9.20.1</aspectj.version>
   </properties>
+  <repositories>
+    <repository>
+      <id>jitpack.io</id>
+      <url>https://jitpack.io</url>
+    </repository>
+  </repositories>
 
   <name>Archetype - DemoTestProject</name>
   <url>http://maven.apache.org</url>
@@ -23,6 +29,16 @@
       <groupId>com.codeborne</groupId>
       <artifactId>selenide</artifactId>
       <version>6.17.2</version>
+    </dependency>
+    <dependency>
+      <groupId>com.github.lamba92</groupId>
+      <artifactId>KImageCheck</artifactId>
+      <version>1.1.0</version>
+    </dependency>
+    <dependency>
+      <groupId>com.codeborne</groupId>
+      <artifactId>selenide-proxy</artifactId>
+      <version>6.19.0</version>
     </dependency>
     <dependency>
       <groupId>org.projectlombok</groupId>

@@ -18,8 +18,8 @@ public class BasePage {
    public static Menu webTables = Menu.byText("Web Tables");
    public static Menu buttons = Menu.byText("Buttons");
    public static Menu links = Menu.byText("Links");
-    Menu brokenLinks = Menu.byText("Broken Links - Images");
-    Menu upload = Menu.byText("Upload and Download");
+   public static Menu brokenLinks = Menu.byText("Broken Links - Images");
+   public static Menu upload = Menu.byText("Upload and Download");
     Menu dynamicProperties = Menu.byText("Dynamic Properties");
 
 
